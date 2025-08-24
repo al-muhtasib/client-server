@@ -9,13 +9,4 @@ exports.getAnnouncements = async (req, res) => {
   }
 };
 
-exports.createAnnouncement = async (req, res) => {
-  const { title, message, date } = req.body;
-  try {
-    const announcement = new Announcement({ title, message, date });
-    await announcement.save();
-    res.status(201).json(announcement);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+

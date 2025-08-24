@@ -10,16 +10,7 @@ exports.getPrayerTimes = async (req, res) => {
   }
 };
 
-exports.createPrayerTime = async (req, res) => {
-  const { date, fajr, dhuhr, asr, maghrib, isha } = req.body;
-  try {
-    const prayerTime = new PrayerTime({ date, fajr, dhuhr, asr, maghrib, isha });
-    await prayerTime.save();
-    res.status(201).json(prayerTime);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+
 
 exports.fetchPrayerTimes = async (req, res) => {
   try {
