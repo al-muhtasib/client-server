@@ -7,7 +7,12 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://al-masjid-22fc7.web.app', // Your frontend URL
+  credentials: true, // Allow cookies/auth headers if needed
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(bodyParser.json());
 
 app.use('/api/events', require('./routes/events'));
